@@ -21,7 +21,6 @@
 </head>
 <body>
 
-    <!-- REPRODUCTOR CON RUTA ABSOLUTA PARA GITHUB -->
     <audio id="miMusica" loop preload="auto">
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
@@ -44,17 +43,18 @@
     </div>
 
     <div class="card">
-        <i class="fa-solid fa-calendar-check fa-3x" style="color: var(--pink-btn); margin-bottom:15px;"></i>
+        <i class="fa-solid fa-location-dot fa-3x" style="color: var(--pink-btn); margin-bottom:15px;"></i>
         <h2 style="font-family: 'Alex Brush'; font-size: 3rem;">Fiesta</h2>
         <p>Sábado 4 de Julio - 21:30 hs</p>
-        <p>Hotel Carlos V</p>
+        <p><strong>Hotel Carlos V</strong></p>
         <p style="font-size: 0.85rem; color: #777;">25 de Mayo 330, San Miguel de Tucumán</p>
-        <!-- MAPA CORREGIDO CON LINK DIRECTO DE GOOGLE MAPS -->
-        <a href="https://maps.app.goo.gl/P69yU7kE7Z7f5UvJ8" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
+        <!-- LINK CORREGIDO A GOOGLE MAPS -->
+        <a href="https://maps.app.goo.gl/r6vjGg3XJ9Mh7M6m7" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
         <a href="https://wa.me/5493812210148?text=Hola%20Lourdes!%20Confirmo%20asistencia" class="btn btn-outline">CONFIRMAR ASISTENCIA</a>
     </div>
 
     <div class="card">
+        <i class="fa-solid fa-music fa-3x" style="color: var(--pink-btn); margin-bottom:15px;"></i>
         <h2>Música</h2>
         <p>¿Qué canción no puede faltar?</p>
         <div class="music-form">
@@ -77,7 +77,8 @@
                 audio.play().then(() => {
                     btn.innerHTML = 'PAUSAR MÚSICA <i class="fa-solid fa-pause"></i>';
                 }).catch(e => {
-                    alert("Error al cargar musica.mp3. Asegúrate de que el archivo esté en GitHub con ese nombre exacto.");
+                    console.log(e);
+                    alert("Asegúrate de que el archivo se llame musica.mp3 y esté subido a GitHub junto a este index.html");
                 });
             } else {
                 audio.pause();
