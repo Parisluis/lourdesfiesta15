@@ -12,7 +12,7 @@
         .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2070') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; }
         .hero h2 { font-family: 'Alex Brush', cursive; font-size: 5rem; margin: 0; }
         .card { background: white; margin: 20px auto; padding: 30px; border-radius: 25px; max-width: 500px; width: 90%; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
-        .btn { background: var(--pink-btn); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: 600; border: none; cursor: pointer; width: 80%; margin: 10px 0; }
+        .btn { background: var(--pink-btn); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: 600; border: none; cursor: pointer; width: 80%; margin: 10px 0; font-size: 1rem; }
         .btn-outline { background: transparent; border: 2px solid var(--pink-btn); color: var(--pink-btn); }
         .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
         .count-item { background: var(--pink-btn); padding: 10px; border-radius: 15px; color: white; }
@@ -21,7 +21,8 @@
 </head>
 <body>
 
-    <audio id="miMusica" loop>
+    <!-- REPRODUCTOR CON RUTA ABSOLUTA PARA GITHUB -->
+    <audio id="miMusica" loop preload="auto">
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
@@ -43,12 +44,13 @@
     </div>
 
     <div class="card">
-        <i class="fa-solid fa-calendar-check fa-3x" style="color: var(--pink-btn);"></i>
+        <i class="fa-solid fa-calendar-check fa-3x" style="color: var(--pink-btn); margin-bottom:15px;"></i>
         <h2 style="font-family: 'Alex Brush'; font-size: 3rem;">Fiesta</h2>
         <p>Sábado 4 de Julio - 21:30 hs</p>
         <p>Hotel Carlos V</p>
         <p style="font-size: 0.85rem; color: #777;">25 de Mayo 330, San Miguel de Tucumán</p>
-        <a href="https://maps.app.goo.gl/Yp4YfSjP4pY7vY6C9" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
+        <!-- MAPA CORREGIDO CON LINK DIRECTO DE GOOGLE MAPS -->
+        <a href="https://maps.app.goo.gl/P69yU7kE7Z7f5UvJ8" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
         <a href="https://wa.me/5493812210148?text=Hola%20Lourdes!%20Confirmo%20asistencia" class="btn btn-outline">CONFIRMAR ASISTENCIA</a>
     </div>
 
@@ -62,7 +64,7 @@
     </div>
 
     <div class="card" style="background: var(--pink-btn); color: white;">
-        <h2 style="margin:0;">@lou.obeidee</h2>
+        <h2 style="margin:0; color:white;">@lou.obeidee</h2>
         <a href="https://instagram.com/lou.obeidee" target="_blank" class="btn" style="background: white; color: var(--pink-btn);">VER PERFIL</a>
     </div>
 
@@ -70,9 +72,13 @@
         function playMusic() {
             var audio = document.getElementById("miMusica");
             var btn = document.getElementById("btnMusica");
+            
             if (audio.paused) {
-                audio.play();
-                btn.innerHTML = 'PAUSAR MÚSICA <i class="fa-solid fa-pause"></i>';
+                audio.play().then(() => {
+                    btn.innerHTML = 'PAUSAR MÚSICA <i class="fa-solid fa-pause"></i>';
+                }).catch(e => {
+                    alert("Error al cargar musica.mp3. Asegúrate de que el archivo esté en GitHub con ese nombre exacto.");
+                });
             } else {
                 audio.pause();
                 btn.innerHTML = 'REPRODUCIR MÚSICA <i class="fa-solid fa-play"></i>';
