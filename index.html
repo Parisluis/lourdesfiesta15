@@ -17,6 +17,7 @@
         .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
         .count-item { background: var(--pink-btn); padding: 10px; border-radius: 15px; color: white; }
         .music-form input { width: 90%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Montserrat'; outline: none; }
+        .icon-box { color: var(--pink-btn); margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -43,17 +44,25 @@
     </div>
 
     <div class="card">
-        <i class="fa-solid fa-location-dot fa-2x" style="color: var(--pink-btn); margin-bottom:10px;"></i>
+        <div class="icon-box"><i class="fa-solid fa-location-dot fa-2x"></i></div>
         <h2 style="font-family: 'Alex Brush'; font-size: 2.5rem; margin:0;">Fiesta</h2>
         <p>Sábado 4 de Julio - 21:30 hs</p>
         <p><strong>Hotel Carlos V</strong></p>
         <p style="font-size: 0.8rem; color: #777;">25 de Mayo 330, San Miguel de Tucumán</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Carlos+V+Tucuman+25+de+Mayo+330" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
-        <a href="https://wa.me/5493812210148?text=Hola%20Lourdes!%20Confirmo%20asistencia%20a%20tu%20fiesta" class="btn btn-outline">CONFIRMAR ASISTENCIA</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Carlos+V+Tucuman" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
+        <a href="https://wa.me/5493812210148?text=Hola%20Lourdes!%20Confirmo%20asistencia" class="btn btn-outline">CONFIRMAR ASISTENCIA</a>
     </div>
 
     <div class="card">
-        <i class="fa-solid fa-compact-disc fa-2x" style="color: var(--pink-btn); margin-bottom:10px;"></i>
+        <div class="icon-box"><i class="fa-solid fa-user-tie fa-2x"></i></div>
+        <h2 style="font-family: 'Alex Brush'; font-size: 2.5rem; margin:0;">Dress Code</h2>
+        <p>Una noche especial merece un look especial.</p>
+        <p style="font-weight: 600; letter-spacing: 2px; color: var(--pink-btn);">GALA</p>
+        <p style="font-size: 0.85rem; font-style: italic;">(Elegante y formal)</p>
+    </div>
+
+    <div class="card">
+        <div class="icon-box"><i class="fa-solid fa-compact-disc fa-2x"></i></div>
         <h2 style="font-family: 'Alex Brush'; font-size: 2.5rem; margin:0;">Música</h2>
         <p>¿Qué tema no puede faltar?</p>
         <div class="music-form">
@@ -63,10 +72,12 @@
     </div>
 
     <div class="card">
-        <i class="fa-solid fa-gift fa-2x" style="color: var(--pink-btn); margin-bottom:10px;"></i>
+        <div class="icon-box"><i class="fa-solid fa-gift fa-2x"></i></div>
         <h2 style="font-family: 'Alex Brush'; font-size: 2.5rem; margin:0;">Regalos</h2>
         <p>Si deseas regalarme algo más que tu hermosa presencia...</p>
-        <p style="background: #fdf2f8; padding: 15px; border-radius: 10px; font-weight: bold; border: 1px dashed var(--pink-btn);">Alias: lour.obeide</p>
+        <div style="background: #fdf2f8; padding: 15px; border-radius: 10px; border: 1px dashed var(--pink-btn); margin-top: 10px;">
+            <p style="margin:0; font-weight: bold; font-size: 1.1rem;">Alias: lour.obeide</p>
+        </div>
     </div>
 
     <div class="card" style="background: var(--pink-btn); color: white;">
@@ -91,7 +102,7 @@
         function sendSong() {
             const song = document.getElementById('song-input').value;
             if(song) {
-                window.open(`https://wa.me/5493812210148?text=Hola%20Lourdes!%20Esta%20cancion%20no%20puede%20faltar:%20${song}`);
+                window.open(`https://wa.me/5493812210148?text=Hola%20Lourdes!%20Sugiero%20este%20tema:%20${song}`);
             }
         }
 
