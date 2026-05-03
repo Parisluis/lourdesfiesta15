@@ -10,7 +10,7 @@
         :root { --pink-bg: #f9d6de; --pink-btn: #ff68b4; --text-dark: #4a4a4a; --text-light: #ffffff; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--pink-bg); color: var(--text-dark); text-align: center; overflow-x: hidden; }
         
-        /* Hero Section - Optimización para Foto Vertical */
+        /* Hero Section */
         .hero { 
             height: 100vh; 
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('fondo.jpg') center/cover no-repeat; 
@@ -22,27 +22,29 @@
             padding-bottom: 60px;
             background-position: center 20%;
         }
-
         .hero h1 { font-size: 1rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 0; font-weight: 300; }
         .hero h2 { font-family: 'Alex Brush', cursive; font-size: 5.5rem; margin: -10px 0 10px 0; text-shadow: 2px 2px 15px rgba(0,0,0,0.6); }
         
-        /* Estilo de Tarjetas Premium */
-        .card { background: white; margin: 25px auto; padding: 35px 25px; border-radius: 30px; max-width: 500px; width: 85%; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.3); }
+        .card { background: white; margin: 25px auto; padding: 35px 25px; border-radius: 30px; max-width: 500px; width: 85%; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         
-        .btn { background: var(--pink-btn); color: white; padding: 16px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: 600; border: none; cursor: pointer; width: 85%; margin: 12px 0; font-size: 0.9rem; letter-spacing: 1px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 104, 180, 0.3); }
-        .btn:active { transform: scale(0.98); }
-        .btn-outline { background: transparent; border: 2px solid var(--pink-btn); color: var(--pink-btn); box-shadow: none; }
+        /* Carrusel de Fotos */
+        .carousel-container { position: relative; width: 100%; max-width: 500px; margin: 20px auto; overflow: hidden; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .carousel-slide { display: flex; transition: transform 0.5s ease-in-out; }
+        .carousel-slide img { width: 100%; flex-shrink: 0; aspect-ratio: 4/5; object-fit: cover; }
+        .carousel-dots { margin-top: 10px; display: flex; justify-content: center; gap: 8px; }
+        .dot { width: 10px; height: 10px; background: #ddd; border-radius: 50%; cursor: pointer; }
+        .dot.active { background: var(--pink-btn); }
+
+        .btn { background: var(--pink-btn); color: white; padding: 16px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: 600; border: none; cursor: pointer; width: 85%; margin: 12px 0; font-size: 0.9rem; letter-spacing: 1px; transition: 0.3s ease; }
+        .btn-outline { background: transparent; border: 2px solid var(--pink-btn); color: var(--pink-btn); }
         
-        /* Countdown */
         .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 25px 0; }
         .count-item { background: var(--pink-btn); padding: 12px 5px; border-radius: 18px; color: white; }
         .count-item span { font-size: 1.4rem; font-weight: 600; }
         .count-item small { font-size: 0.7rem; text-transform: uppercase; opacity: 0.9; }
 
-        .music-form input { width: 85%; padding: 15px; margin-bottom: 12px; border: 1px solid #eee; border-radius: 15px; background: #fcfcfc; font-family: 'Montserrat'; }
-        
-        /* Dress Code Highlighting */
-        .highlight { color: var(--pink-btn); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .music-form input { width: 85%; padding: 15px; margin-bottom: 12px; border: 1px solid #eee; border-radius: 15px; }
+        .highlight { color: var(--pink-btn); font-weight: 600; text-transform: uppercase; }
     </style>
 </head>
 <body>
@@ -58,6 +60,27 @@
         <button onclick="playMusic()" class="btn" id="btnMusica" style="width: auto; padding: 12px 25px; font-size: 0.8rem;">REPRODUCIR MÚSICA <i class="fa-solid fa-play" style="margin-left:8px;"></i></button>
     </div>
 
+    <!-- CARRUSEL DE FOTOS -->
+    <div class="card" style="padding: 15px;">
+        <div class="carousel-container">
+            <div class="carousel-slide" id="carouselSlide">
+                <img src="1.jpg" alt="Foto 1">
+                <img src="2.jpg" alt="Foto 2">
+                <img src="3.jpg" alt="Foto 3">
+                <img src="4.jpg" alt="Foto 4">
+                <img src="5.jpg" alt="Foto 5">
+            </div>
+        </div>
+        <div class="carousel-dots" id="carouselDots">
+            <div class="dot active" onclick="currentSlide(0)"></div>
+            <div class="dot" onclick="currentSlide(1)"></div>
+            <div class="dot" onclick="currentSlide(2)"></div>
+            <div class="dot" onclick="currentSlide(3)"></div>
+            <div class="dot" onclick="currentSlide(4)"></div>
+        </div>
+    </div>
+
+    <!-- CONTADOR -->
     <div class="card">
         <h3 style="letter-spacing: 3px; font-weight: 400; color: #888;">FALTA</h3>
         <div class="countdown">
@@ -68,60 +91,97 @@
         </div>
     </div>
 
+    <!-- UBICACIÓN -->
     <div class="card">
         <i class="fa-solid fa-location-dot fa-3x" style="color: var(--pink-btn); margin-bottom:20px; opacity: 0.8;"></i>
         <h2 style="font-family: 'Alex Brush'; font-size: 3.5rem; margin-bottom: 10px;">Fiesta</h2>
-        <p style="margin: 5px 0;">Sábado 4 de Julio - 21:30 hs</p>
+        <p>Sábado 4 de Julio - 21:30 hs</p>
         <p><strong>Hotel Carlos V</strong></p>
         <p style="font-size: 0.85rem; color: #888; margin-bottom: 25px;">25 de Mayo 330, San Miguel de Tucumán</p>
-        <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
+        <a href="https://maps.app.goo.gl/r6vjGg3XJ9Mh7M6m7" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
         <a href="https://wa.me/5493812210148?text=Hola%20Lourdes!%20Confirmo%20asistencia" class="btn btn-outline">CONFIRMAR ASISTENCIA</a>
     </div>
 
+    <!-- DRESS CODE -->
     <div class="card">
         <i class="fa-solid fa-user-tie fa-3x" style="color: var(--pink-btn); margin-bottom:20px; opacity: 0.8;"></i>
         <h2 style="font-family: 'Alex Brush'; font-size: 3.5rem; margin-bottom: 10px;">Dress Code</h2>
         <p style="letter-spacing: 2px; font-weight: 600; margin-bottom: 15px;">GALA</p>
-        <p style="font-size: 0.95rem; line-height: 1.7; color: #555; padding: 0 10px;">
+        <p style="font-size: 0.95rem; line-height: 1.7; color: #555;">
             Para que el brillo de Lourdes sea único esa noche, te pedimos que nos acompañes con tu mejor look de gala, 
-            <span class="highlight">evitando los tonos Rosa y Dorado</span>, los cuales están reservados exclusivamente para la quinceañera.
+            <span class="highlight">evitando los tonos Rosa y Dorado</span>.
         </p>
     </div>
 
+    <!-- MÚSICA -->
     <div class="card">
         <i class="fa-solid fa-music fa-3x" style="color: var(--pink-btn); margin-bottom:20px; opacity: 0.8;"></i>
         <h2 style="font-family: 'Alex Brush'; font-size: 3rem; margin-bottom: 10px;">Música</h2>
         <p style="margin-bottom: 20px;">¿Qué canción no puede faltar?</p>
         <div class="music-form">
-            <input type="text" id="song-input" placeholder="Nombre de la canción y artista...">
+            <input type="text" id="song-input" placeholder="Nombre de la canción...">
             <button onclick="sendSong()" class="btn">ENVIAR SUGERENCIA</button>
         </div>
     </div>
-<!-- ÁLBUM COMPARTIDO -->
+
+    <!-- ÁLBUM COMPARTIDO -->
     <div class="card" style="border: 2px dashed var(--pink-btn); background: #fffafb;">
         <i class="fa-solid fa-camera-retro fa-3x" style="color: var(--pink-btn); margin-bottom:20px; opacity: 0.8;"></i>
         <h2 style="font-family: 'Alex Brush'; font-size: 3rem; margin-bottom: 10px;">Nuestras Fotos</h2>
-        <p style="margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6;">
-            ¡Ayúdanos a capturar cada momento! Subí aquí todas las fotos y videos que saques durante la fiesta.
-        </p>
-        <a href="https://drive.google.com/drive/folders/16bSXpVHcT1OJt35Rv1IXqxmNppaGseYL?usp=sharing" 
-           target="_blank" class="btn">
-           <i class="fa-solid fa-cloud-arrow-up" style="margin-right: 10px;"></i> SUBIR MIS FOTOS
-        </a>
-        <p style="font-size: 0.75rem; color: #999; margin-top: 10px;">Álbum compartido en Google Drive</p>
-    </div>
-    <div class="card" style="background: var(--pink-btn); color: white; padding: 40px 20px;">
-        <i class="fa-brands fa-instagram fa-3x" style="margin-bottom: 15px;"></i>
-        <h2 style="margin:0 0 20px 0; font-weight: 400; letter-spacing: 2px;">@lou.obeidee</h2>
-        <a href="https://instagram.com/lou.obeidee" target="_blank" class="btn" style="background: white; color: var(--pink-btn); width: 60%;">VER PERFIL</a>
+        <p style="margin-bottom: 20px; font-size: 0.95rem;">¡Subí aquí todas las fotos que saques durante la fiesta!</p>
+        <a href="https://drive.google.com/drive/folders/16bSXpVHcT1OJt35Rv1IXqxmNppaGseYL?usp=sharing" target="_blank" class="btn">SUBIR MIS FOTOS</a>
     </div>
 
     <script>
-        // Función para la música
+        // Lógica del Carrusel
+        let currentIndex = 0;
+        const slides = document.getElementById('carouselSlide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            currentIndex = index;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        function currentSlide(index) { showSlide(index); }
+
+        // Carrusel automático cada 4 segundos
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % 5;
+            showSlide(currentIndex);
+        }, 4000);
+
         function playMusic() {
             var audio = document.getElementById("miMusica");
             var btn = document.getElementById("btnMusica");
             if (audio.paused) {
                 audio.play().then(() => {
-                    btn.innerHTML = 'PAUSAR MÚSICA <i class="fa-solid fa-pause" style="margin-left:8px;"></i>';
-                }).catch(e =>
+                    btn.innerHTML = 'PAUSAR MÚSICA <i class="fa-solid fa-pause"></i>';
+                }).catch(e => { alert("Sube el archivo musica.mp3 para escuchar."); });
+            } else {
+                audio.pause();
+                btn.innerHTML = 'REPRODUCIR MÚSICA <i class="fa-solid fa-play"></i>';
+            }
+        }
+
+        function sendSong() {
+            const song = document.getElementById('song-input').value;
+            if(song) { window.open(`https://wa.me/5493812210148?text=Hola%20Lourdes!%20Sugiero:%20${encodeURIComponent(song)}`); }
+        }
+
+        const target = new Date("July 4, 2026 21:30:00").getTime();
+        setInterval(function() {
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
