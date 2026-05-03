@@ -10,29 +10,39 @@
         :root { --pink-bg: #f9d6de; --pink-btn: #ff68b4; --text-dark: #4a4a4a; --text-light: #ffffff; }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--pink-bg); color: var(--text-dark); text-align: center; overflow-x: hidden; }
         
-        /* Ajuste de Hero para foto vertical */
+        /* Hero Section - Optimización para Foto Vertical */
         .hero { 
             height: 100vh; 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('fondo.jpg') center/cover no-repeat; 
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('fondo.jpg') center/cover no-repeat; 
             display: flex; 
             flex-direction: column; 
-            justify-content: flex-end; /* Texto abajo para no tapar su cara */
+            justify-content: flex-end; 
             align-items: center; 
             color: white; 
-            padding-bottom: 50px;
-            background-position: center 20%; /* Centra la vista en su rostro */
+            padding-bottom: 60px;
+            background-position: center 20%;
         }
 
-        .hero h1 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 0; }
-        .hero h2 { font-family: 'Alex Brush', cursive; font-size: 5.5rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: 1rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 0; font-weight: 300; }
+        .hero h2 { font-family: 'Alex Brush', cursive; font-size: 5.5rem; margin: -10px 0 10px 0; text-shadow: 2px 2px 15px rgba(0,0,0,0.6); }
         
-        .card { background: white; margin: 20px auto; padding: 30px; border-radius: 25px; max-width: 500px; width: 90%; box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
-        .btn { background: var(--pink-btn); color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: 600; border: none; cursor: pointer; width: 80%; margin: 10px 0; font-size: 1rem; transition: 0.3s; }
-        .btn:hover { transform: scale(1.05); }
-        .btn-outline { background: transparent; border: 2px solid var(--pink-btn); color: var(--pink-btn); }
-        .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
-        .count-item { background: var(--pink-btn); padding: 10px; border-radius: 15px; color: white; }
-        .music-form input { width: 85%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 10px; }
+        /* Estilo de Tarjetas Premium */
+        .card { background: white; margin: 25px auto; padding: 35px 25px; border-radius: 30px; max-width: 500px; width: 85%; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.3); }
+        
+        .btn { background: var(--pink-btn); color: white; padding: 16px 30px; text-decoration: none; border-radius: 50px; display: inline-block; font-weight: 600; border: none; cursor: pointer; width: 85%; margin: 12px 0; font-size: 0.9rem; letter-spacing: 1px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(255, 104, 180, 0.3); }
+        .btn:active { transform: scale(0.98); }
+        .btn-outline { background: transparent; border: 2px solid var(--pink-btn); color: var(--pink-btn); box-shadow: none; }
+        
+        /* Countdown */
+        .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 25px 0; }
+        .count-item { background: var(--pink-btn); padding: 12px 5px; border-radius: 18px; color: white; }
+        .count-item span { font-size: 1.4rem; font-weight: 600; }
+        .count-item small { font-size: 0.7rem; text-transform: uppercase; opacity: 0.9; }
+
+        .music-form input { width: 85%; padding: 15px; margin-bottom: 12px; border: 1px solid #eee; border-radius: 15px; background: #fcfcfc; font-family: 'Montserrat'; }
+        
+        /* Dress Code Highlighting */
+        .highlight { color: var(--pink-btn); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -44,12 +54,12 @@
     <div class="hero">
         <h1>Mis 15 años</h1>
         <h2>Lourdes</h2>
-        <p style="font-style: italic; max-width: 300px; margin-bottom: 20px;">"Esa noche será para mí mágica, inolvidable y única."</p>
-        <button onclick="playMusic()" class="btn" id="btnMusica" style="width: auto; padding: 10px 20px;">REPRODUCIR MÚSICA <i class="fa-solid fa-play"></i></button>
+        <p style="font-style: italic; max-width: 280px; margin-bottom: 25px; font-weight: 300;">"Esa noche será para mí mágica, inolvidable y única."</p>
+        <button onclick="playMusic()" class="btn" id="btnMusica" style="width: auto; padding: 12px 25px; font-size: 0.8rem;">REPRODUCIR MÚSICA <i class="fa-solid fa-play" style="margin-left:8px;"></i></button>
     </div>
 
     <div class="card">
-        <h3>FALTA</h3>
+        <h3 style="letter-spacing: 3px; font-weight: 400; color: #888;">FALTA</h3>
         <div class="countdown">
             <div class="count-item"><span id="days">00</span><br><small>Días</small></div>
             <div class="count-item"><span id="hours">00</span><br><small>Hs</small></div>
@@ -59,64 +69,47 @@
     </div>
 
     <div class="card">
-        <i class="fa-solid fa-location-dot fa-3x" style="color: var(--pink-btn); margin-bottom:15px;"></i>
-        <h2 style="font-family: 'Alex Brush'; font-size: 3rem;">Fiesta</h2>
-        <p>Sábado 4 de Julio - 21:30 hs</p>
+        <i class="fa-solid fa-location-dot fa-3x" style="color: var(--pink-btn); margin-bottom:20px; opacity: 0.8;"></i>
+        <h2 style="font-family: 'Alex Brush'; font-size: 3.5rem; margin-bottom: 10px;">Fiesta</h2>
+        <p style="margin: 5px 0;">Sábado 4 de Julio - 21:30 hs</p>
         <p><strong>Hotel Carlos V</strong></p>
-        <p style="font-size: 0.85rem; color: #777;">25 de Mayo 330, San Miguel de Tucumán</p>
-        <a href="https://maps.app.goo.gl/r6vjGg3XJ9Mh7M6m7" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
+        <p style="font-size: 0.85rem; color: #888; margin-bottom: 25px;">25 de Mayo 330, San Miguel de Tucumán</p>
+        <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
         <a href="https://wa.me/5493812210148?text=Hola%20Lourdes!%20Confirmo%20asistencia" class="btn btn-outline">CONFIRMAR ASISTENCIA</a>
     </div>
 
     <div class="card">
-        <i class="fa-solid fa-music fa-3x" style="color: var(--pink-btn); margin-bottom:15px;"></i>
-        <h2>Música</h2>
-        <p>¿Qué canción no puede faltar?</p>
+        <i class="fa-solid fa-user-tie fa-3x" style="color: var(--pink-btn); margin-bottom:20px; opacity: 0.8;"></i>
+        <h2 style="font-family: 'Alex Brush'; font-size: 3.5rem; margin-bottom: 10px;">Dress Code</h2>
+        <p style="letter-spacing: 2px; font-weight: 600; margin-bottom: 15px;">GALA</p>
+        <p style="font-size: 0.95rem; line-height: 1.7; color: #555; padding: 0 10px;">
+            Para que el brillo de Lourdes sea único esa noche, te pedimos que nos acompañes con tu mejor look de gala, 
+            <span class="highlight">evitando los tonos Rosa y Dorado</span>, los cuales están reservados exclusivamente para la quinceañera.
+        </p>
+    </div>
+
+    <div class="card">
+        <i class="fa-solid fa-music fa-3x" style="color: var(--pink-btn); margin-bottom:20px; opacity: 0.8;"></i>
+        <h2 style="font-family: 'Alex Brush'; font-size: 3rem; margin-bottom: 10px;">Música</h2>
+        <p style="margin-bottom: 20px;">¿Qué canción no puede faltar?</p>
         <div class="music-form">
-            <input type="text" id="song-input" placeholder="Nombre de la canción...">
+            <input type="text" id="song-input" placeholder="Nombre de la canción y artista...">
             <button onclick="sendSong()" class="btn">ENVIAR SUGERENCIA</button>
         </div>
     </div>
 
-    <div class="card" style="background: var(--pink-btn); color: white;">
-        <h2 style="margin:0; color:white;">@lou.obeidee</h2>
-        <a href="https://instagram.com/lou.obeidee" target="_blank" class="btn" style="background: white; color: var(--pink-btn);">VER PERFIL</a>
+    <div class="card" style="background: var(--pink-btn); color: white; padding: 40px 20px;">
+        <i class="fa-brands fa-instagram fa-3x" style="margin-bottom: 15px;"></i>
+        <h2 style="margin:0 0 20px 0; font-weight: 400; letter-spacing: 2px;">@lou.obeidee</h2>
+        <a href="https://instagram.com/lou.obeidee" target="_blank" class="btn" style="background: white; color: var(--pink-btn); width: 60%;">VER PERFIL</a>
     </div>
 
     <script>
+        // Función para la música
         function playMusic() {
             var audio = document.getElementById("miMusica");
             var btn = document.getElementById("btnMusica");
             if (audio.paused) {
                 audio.play().then(() => {
-                    btn.innerHTML = 'PAUSAR MÚSICA <i class="fa-solid fa-pause"></i>';
-                }).catch(e => {
-                    alert("Sube el archivo musica.mp3 para escuchar la música.");
-                });
-            } else {
-                audio.pause();
-                btn.innerHTML = 'REPRODUCIR MÚSICA <i class="fa-solid fa-play"></i>';
-            }
-        }
-
-        function sendSong() {
-            const song = document.getElementById('song-input').value;
-            if(song) {
-                window.open(`https://wa.me/5493812210148?text=Hola%20Lourdes!%20Sugiero%20esta%20canción:%20${song}`);
-            }
-        }
-
-        const target = new Date("July 4, 2026 21:30:00").getTime();
-        setInterval(function() {
-            const now = new Date().getTime();
-            const diff = target - now;
-            if (diff > 0) {
-                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById("mins").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("secs").innerText = Math.floor((diff % (1000 * 60)) / 1000);
-            }
-        }, 1000);
-    </script>
-</body>
-</html>
+                    btn.innerHTML = 'PAUSAR MÚSICA <i class="fa-solid fa-pause" style="margin-left:8px;"></i>';
+                }).catch(e =>
