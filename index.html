@@ -15,35 +15,36 @@
         body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--pink-bg); color: var(--text-dark); text-align: center; overflow-x: hidden; }
         
         /* ORO METÁLICO DELICADO - ALTO CONTRASTE */
-        .texto-dorado {
-            font-family: 'Great Vibes', cursive !important;
-            font-size: 4.5rem;
-            text-align: center;
-            margin: 0;
-            line-height: 1.15;
-            display: inline-block;
-            padding: 0 28px 10px 28px;
-            font-weight: 400; /* Delgadez intencional */
+       .texto-dorado {
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 4.5rem;
+    text-align: center;
+    margin: 0;
+    line-height: 1.15;
+    display: inline-block;
+    padding: 0 28px 10px 28px;
+    font-weight: 400;
 
-            /* Ajuste de color para evitar el "mostaza oscuro" */
-            background: linear-gradient(
-                to bottom,
-                #E8C678 0%,    /* Oro claro (borde superior brillante) */
-                #FFFFFF 35%,   /* HIGHLIGHT BLANCO (Más ancho para destacar) */
-                #D4AF37 55%,   /* Oro clásico */
-                #8A5A19 80%,   /* Sombra profunda para dar volumen */
-                #FCEABB 100%   /* Reflejo de luz en la base */
-            );
+    background: linear-gradient(
+        135deg,
+        #f8f1d4 0%,
+        #f3e4b6 18%,
+        #e7cf8a 35%,
+        #fff7dc 50%,
+        #d8b96f 68%,
+        #f4e3b2 82%,
+        #fff8df 100%
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    filter:
+        drop-shadow(0px 2px 2px rgba(0,0,0,0.25));
+}
             
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent; 
-
-            /* Sombra y Relieve: Optimizado para fondos oscuros */
-            filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.6)) /* Sombra fuerte para despegar */
-                    drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.5)); /* Micro-relieve de luz */
-        }
-
+        
         /* Hero Section */
         .hero { 
             height: 100vh; 
