@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Mis 15 Años - Lourdes</title>
-    <!-- Importación de tipografías: Montserrat para lectura y Great Vibes para el render dorado -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
     <style>
@@ -15,7 +14,7 @@
         }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--pink-bg); color: var(--text-dark); text-align: center; overflow-x: hidden; }
         
-        /* PROTOCOLO DE RENDERIZADO: ORO METÁLICO 3D */
+        /* ORO METÁLICO DELICADO - ALTO CONTRASTE */
         .texto-dorado {
             font-family: 'Great Vibes', cursive !important;
             font-size: 4.5rem;
@@ -23,30 +22,31 @@
             margin: 0;
             line-height: 1.2;
             display: inline-block;
+            font-weight: 400; /* Delgadez intencional */
 
-            /* Simulación de Material: Gradiente de 5 puntos para efecto metálico */
+            /* Ajuste de color para evitar el "mostaza oscuro" */
             background: linear-gradient(
                 to bottom,
-                #B38728 0%,    /* Sombra superior */
-                #FDF5A6 25%,   /* Highlight (brillo especular) */
-                #D4AF37 50%,   /* Tono medio base (oro clásico) */
-                #996515 75%,   /* Core shadow (profundidad) */
-                #FDF5A6 100%   /* Luz reflejada inferior */
+                #E8C678 0%,    /* Oro claro (borde superior brillante) */
+                #FFFFFF 35%,   /* HIGHLIGHT BLANCO (Más ancho para destacar) */
+                #D4AF37 55%,   /* Oro clásico */
+                #8A5A19 80%,   /* Sombra profunda para dar volumen */
+                #FCEABB 100%   /* Reflejo de luz en la base */
             );
             
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent; /* Revela el render interior */
+            color: transparent; 
 
-            /* Iluminación y Volumen 3D[cite: 1, 2] */
-            filter: drop-shadow(2px 4px 3px rgba(0, 0, 0, 0.2)) 
-                    drop-shadow(-1px -1px 1px rgba(255, 255, 255, 0.4));
+            /* Sombra y Relieve: Optimizado para fondos oscuros */
+            filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.6)) /* Sombra fuerte para despegar */
+                    drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.5)); /* Micro-relieve de luz */
         }
 
-        /* Estructura de Tarjetas y Secciones */
+        /* Hero Section */
         .hero { 
             height: 100vh; 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('fondo.jpg') center/cover no-repeat; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('fondo.jpg') center/cover no-repeat; 
             display: flex; 
             flex-direction: column; 
             justify-content: flex-end; 
@@ -83,12 +83,11 @@
 
     <div class="hero">
         <h1>Mis 15 años</h1>
-        <h2 class="texto-dorado">Lourdes</h2>
-        <p style="font-style: italic; max-width: 280px; margin-bottom: 25px; font-weight: 400; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">"Esa noche será para mí mágica, inolvidable y única."</p>
+        <h2 class="texto-dorado" style="font-size: 6rem; margin-bottom: 10px; margin-top: -10px;">Lourdes</h2>
+        <p style="font-style: italic; max-width: 280px; margin-bottom: 25px; font-weight: 400; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">"Esa noche será para mí mágica, inolvidable y única."</p>
         <button onclick="playMusic()" class="btn" id="btnMusica" style="width: auto; padding: 12px 25px;">REPRODUCIR MÚSICA <i class="fa-solid fa-play" style="margin-left:8px;"></i></button>
     </div>
 
-    <!-- CONTADOR -->
     <div class="card">
         <h3 style="letter-spacing: 4px; font-weight: 700; margin-bottom:15px; font-size: 1.2rem;">FALTA</h3>
         <div class="countdown">
@@ -99,18 +98,16 @@
         </div>
     </div>
 
-    <!-- FIESTA -->
     <div class="card">
         <i class="fa-solid fa-location-dot fa-2x" style="color: var(--pink-btn); margin-bottom:15px;"></i>
-        <h2 class="texto-dorado" style="font-size: 3.5rem;">Fiesta</h2>
-        <p>Sábado 4 de Julio - 21:30 hs</p>
+        <h2 class="texto-dorado">Fiesta</h2>
+        <p style="margin-top: -5px;">Sábado 4 de Julio - 21:30 hs</p>
         <p><strong>Hotel Carlos V</strong></p>
         <p style="font-size: 0.85rem; color: #888; margin-bottom: 25px;">25 de Mayo 330, San Miguel de Tucumán</p>
-        <a href="https://maps.app.goo.gl/r6vjGg3XJ9Mh7M6m7" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Carlos+V,+25+de+Mayo+330,+San+Miguel+de+Tucuman" target="_blank" class="btn">¿CÓMO LLEGAR?</a>
         <a href="https://wa.me/5493812210148?text=Hola%20Lourdes!%20Confirmo%20asistencia" class="btn btn-outline">CONFIRMAR ASISTENCIA</a>
     </div>
 
-    <!-- CARRUSEL -->
     <div class="card" style="padding: 15px;">
         <div class="carousel-container">
             <div class="carousel-slide" id="carouselSlide">
@@ -134,35 +131,31 @@
         </div>
     </div>
 
-    <!-- DRESS CODE -->
     <div class="card">
-        <h2 class="texto-dorado" style="font-size: 3.5rem;">Dress Code</h2>
-        <p style="letter-spacing: 2px; font-weight: 700; margin-bottom: 15px; margin-top: 10px;">GALA</p>
+        <h2 class="texto-dorado">Dress Code</h2>
+        <p style="letter-spacing: 2px; font-weight: 700; margin-bottom: 15px; margin-top: 5px;">GALA</p>
         <p style="font-size: 0.95rem; line-height: 1.7; color: #555;">
             Para que el brillo de Lourdes sea único esa noche, te pedimos que nos acompañes con tu mejor look de gala, 
             <strong style="color: var(--pink-btn);">evitando los tonos Rosa y Dorado</strong>.
         </p>
     </div>
 
-    <!-- MÚSICA -->
     <div class="card">
-        <h2 class="texto-dorado" style="font-size: 3.5rem;">Música</h2>
-        <p style="margin-bottom: 20px; margin-top: 10px;">¿Qué canción no puede faltar?</p>
+        <h2 class="texto-dorado">Música</h2>
+        <p style="margin-bottom: 20px; margin-top: 5px;">¿Qué canción no puede faltar?</p>
         <div class="music-form">
             <input type="text" id="song-input" style="width: 85%; padding: 15px; margin-bottom: 12px; border: 1px solid #eee; border-radius: 15px;" placeholder="Nombre de la canción...">
             <button onclick="sendSong()" class="btn">ENVIAR SUGERENCIA</button>
         </div>
     </div>
 
-    <!-- DRIVE -->
     <div class="card" style="border: 2px dashed var(--pink-btn); background: #fffafb;">
         <i class="fa-solid fa-camera-retro fa-2x" style="color: var(--pink-btn); margin-bottom:15px;"></i>
-        <h2 class="texto-dorado" style="font-size: 3.5rem;">Nuestras Fotos</h2>
-        <p style="margin-bottom: 20px; font-size: 0.95rem; margin-top: 10px;">¡Subí aquí todas las fotos que saques durante la fiesta!</p>
+        <h2 class="texto-dorado">Nuestras Fotos</h2>
+        <p style="margin-bottom: 20px; font-size: 0.95rem; margin-top: 5px;">¡Subí aquí todas las fotos que saques durante la fiesta!</p>
         <a href="https://drive.google.com/drive/folders/16bSXpVHcT1OJt35Rv1IXqxmNppaGseYL?usp=sharing" target="_blank" class="btn">SUBIR MIS FOTOS</a>
     </div>
 
-    <!-- INSTAGRAM -->
     <div class="card" style="background: var(--pink-btn); color: white; padding: 40px 20px;">
         <i class="fa-brands fa-instagram fa-3x" style="margin-bottom: 15px; color: white;"></i>
         <h2 style="margin:0 0 20px 0; font-weight: 700; letter-spacing: 2px; color: white !important; -webkit-text-fill-color: white; text-shadow: none; background: none; filter: none; font-family: 'Montserrat' !important; font-size: 1.8rem;">@lou.obeidee</h2>
