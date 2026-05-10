@@ -14,7 +14,7 @@
         }
         body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--pink-bg); color: var(--text-dark); text-align: center; overflow-x: hidden; }
         
-        /* ORO METÁLICO DELICADO - ALTO CONTRASTE */
+        /* ORO METÁLICO CLARO CON REFLEJOS DIAGONALES */
         .texto-dorado {
             font-family: 'Great Vibes', cursive !important;
             font-size: 4.5rem;
@@ -23,25 +23,32 @@
             line-height: 1.15;
             display: inline-block;
             padding: 0 28px 10px 28px;
-            font-weight: 400; /* Delgadez intencional */
+            font-weight: 400;
 
-            /* Ajuste de color para evitar el "mostaza oscuro" */
+            /* Dorado luminoso con vetas diagonales tipo reflejo metálico */
             background: linear-gradient(
-                to bottom,
-                #fff8df 0%,    /* Oro claro (borde superior brillante) */
-                #FFFFFF 35%,   /* HIGHLIGHT BLANCO (Más ancho para destacar) */
-                #D4AF37 55%,   /* Oro clásico */
-                #d8b96f 80%,   /* Sombra profunda para dar volumen */
-                #FCEABB 100%   /* Reflejo de luz en la base */
+                135deg,
+                #8a6418 0%,
+                #c79b32 12%,
+                #fff6bf 24%,
+                #f7df84 34%,
+                #b88724 47%,
+                #fff8cf 60%,
+                #e3bd55 72%,
+                #9a6d1d 86%,
+                #f8e7a2 100%
             );
+            background-size: 170% 170%;
             
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent; 
+            color: transparent;
+            -webkit-text-fill-color: transparent;
 
-            /* Sombra y Relieve: Optimizado para fondos oscuros */
-            filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.6)) /* Sombra fuerte para despegar */
-                    drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.5)); /* Micro-relieve de luz */
+            /* Relieve limpio para que se lea sobre fondos claros y oscuros */
+            -webkit-text-stroke: 0.25px rgba(120, 80, 15, 0.35);
+            filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.45))
+                    drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.45));
         }
 
         /* Hero Section */
